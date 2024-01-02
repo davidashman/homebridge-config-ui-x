@@ -22,6 +22,7 @@ export class SettingsComponent implements OnInit {
   public serviceForm = new FormGroup({
     HOMEBRIDGE_DEBUG: new FormControl(false),
     HOMEBRIDGE_KEEP_ORPHANS: new FormControl(false),
+    HOMEBRIDGE_PUBLISH_ALL_ACCESSORIES: new FormControl(false),
     HOMEBRIDGE_INSECURE: new FormControl(true),
     ENV_DEBUG: new FormControl(null),
     ENV_NODE_OPTIONS: new FormControl(null),

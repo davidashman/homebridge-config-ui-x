@@ -7,6 +7,7 @@ import { AuthService } from '../auth/auth.service';
 import { IoNamespace, WsService } from '../ws.service';
 import { ServiceTypeX } from './accessories.interfaces';
 import { InfoModalComponent } from './info-modal/info-modal.component';
+import { ApiService } from '@/app/core/api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -35,12 +36,14 @@ export class AccessoriesService {
     'CameraRTPStreamManagement',
     'ProtocolInformation',
   ];
+  public pairings: Map<string, any>;
 
   constructor(
     private modalService: NgbModal,
     public $toastr: ToastrService,
     private $ws: WsService,
     public $auth: AuthService,
+    public $api: ApiService,
   ) {}
 
   /**
@@ -82,6 +85,10 @@ export class AccessoriesService {
 
     // load the room layout first
     await this.loadLayout();
+
+    // load the pairings too
+    await this.loadPairings();
+    console.log(this.pairings);
 
     // start accessory subscription
     if (this.io.connected) {
@@ -153,6 +160,16 @@ export class AccessoriesService {
         () => this.layoutSaved.next(undefined),
         err => this.$toastr.error(err.message, 'Failed to save page layout'),
       );
+  }
+
+  private async loadPairings() {
+    try {
+      this.pairings = new Map((await this.$api.get('/server/pairings').toPromise())
+        // eslint-disable-next-line no-underscore-dangle
+        .map((p) => [p._username, p]));
+    } catch (e) {
+      this.pairings = new Map();
+    }
   }
 
   /**

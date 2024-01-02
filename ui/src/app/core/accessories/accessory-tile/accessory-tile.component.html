@@ -58,4 +58,6 @@
     Stateless Programmable Switch
   </app-statelessprogrammableswitch>
   <app-unknown *ngSwitchDefault [service]="service">{{ service.humanType }}</app-unknown>
+
+  <i class="fas fa-fw fa-qrcode primary-text qrcode-icon" *ngIf="deviceInfo._main === false"></i>
 </ng-container>

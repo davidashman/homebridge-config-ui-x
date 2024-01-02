@@ -11,6 +11,10 @@ export class HbServiceStartupSettings {
     HOMEBRIDGE_KEEP_ORPHANS: boolean;
 
   @IsBoolean()
+  @ApiProperty({ default: false, required: true })
+  HOMEBRIDGE_PUBLISH_ALL_ACCESSORIES: boolean;
+
+  @IsBoolean()
   @IsOptional()
   @ApiProperty({ default: true, required: true })
     HOMEBRIDGE_INSECURE: boolean;

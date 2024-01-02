@@ -9,10 +9,15 @@ import { AccessoriesService } from '../accessories.service';
 })
 export class AccessoryTileComponent implements OnInit {
   @Input() public service: ServiceTypeX;
+  public deviceInfo: any;
 
   constructor(
     public $accessories: AccessoriesService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.deviceInfo = this.$accessories.pairings.get(this.service.instance.username);
+    console.log(`${this.service.instance.username} => ${this.deviceInfo}`);
+  }
+
 }

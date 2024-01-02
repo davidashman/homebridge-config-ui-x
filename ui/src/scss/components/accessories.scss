@@ -150,6 +150,11 @@
       top: 5px !important;
       right: 5px !important;
     }
+
+    .qrcode-icon {
+      bottom: 5px !important;
+      right: 5px !important;
+    }
   }
 
   .manage-accessory-button {
@@ -174,6 +179,13 @@
   .refreshing-accessory-status-icon {
     margin-right: 20px;
     margin-top: 20px;
+    float: right;
+  }
+
+  .qrcode-icon {
+    position: relative;
+    right: 15px;
+    bottom: 45px;
     float: right;
   }
 }

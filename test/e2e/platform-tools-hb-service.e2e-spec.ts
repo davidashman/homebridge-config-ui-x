@@ -112,6 +112,7 @@ describe('PlatformToolsHbService (e2e)', () => {
     const payload = {
       'HOMEBRIDGE_DEBUG': true,
       'HOMEBRIDGE_KEEP_ORPHANS': true,
+      'HOMEBRIDGE_PUBLISH_ALL_ACCESSORIES': true,
       'HOMEBRIDGE_INSECURE': false,
       'ENV_DEBUG': '*',
       'ENV_NODE_OPTIONS': '--inspect',
