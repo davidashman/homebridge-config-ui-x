@@ -29,9 +29,7 @@
       <label for="form-name" class="active" [translate]="'accessories.label_name'">Name</label>
     </div>
     <div *ngIf="!deviceInfo._bridge" class="w-100 d-flex flex-column">
-      <a href="{{deviceInfo._setupCode}}" class="mr-auto ml-auto mt-2 mb-2" style="width: 180px; height: 180px;">
-        <app-qrcode [data]="deviceInfo._setupCode" class="mr-auto ml-auto mt-2 mb-2" style="width: 180px; height: 180px;"></app-qrcode>
-      </a>
+      <app-qrcode [data]="deviceInfo._setupCode" class="mr-auto ml-auto mt-2 mb-2" style="width: 180px; height: 180px;"></app-qrcode>
       <p class="mr-auto ml-auto text-center">
         {{ deviceInfo.pincode }}
       </p>
