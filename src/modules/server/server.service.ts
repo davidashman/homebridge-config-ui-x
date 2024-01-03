@@ -156,6 +156,8 @@ export class ServerService {
       device._category = 'Other';
     }
 
+    device._bridge = device._main || device._category === Categories.BRIDGE;
+
     return device;
   }
 
