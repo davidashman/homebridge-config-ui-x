@@ -17,7 +17,6 @@ export class AccessoryTileComponent implements OnInit {
 
   ngOnInit() {
     this.deviceInfo = this.$accessories.pairings.get(this.service.instance.username);
-    console.log(`${this.service.instance.username} => ${this.deviceInfo}`);
   }
 
 }

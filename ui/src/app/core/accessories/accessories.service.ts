@@ -88,7 +88,6 @@ export class AccessoriesService {
 
     // load the pairings too
     await this.loadPairings();
-    console.log(this.pairings);
 
     // start accessory subscription
     if (this.io.connected) {
